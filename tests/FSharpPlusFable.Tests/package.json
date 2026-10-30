@@ -12,6 +12,6 @@
     "fable-splitter": "^2.1.12",
     "isomorphic-fetch": "^2.2.1",
     "minimist": "^1.2.5",
-    "mocha": "^7.1.0"
+    "mocha": "^10.2.0"
   }
 }
