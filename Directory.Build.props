@@ -30,6 +30,12 @@
     <EnableSourceControlManagerQueries>$(EnableSourceLink)</EnableSourceControlManagerQueries>
   </PropertyGroup>
 
+  <!-- Hosted Windows images no longer include the net45/net452 targeting packs.
+       Restore reference assemblies without changing the supported frameworks. -->
+  <ItemGroup Condition="'$(OS)' == 'Windows_NT' And ('$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'net452')">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
+  </ItemGroup>
+
   <!-- mono -->
   <PropertyGroup Condition="'$(OS)' == 'Unix'">
     <MonoRoot Condition="'$(MonoRoot)' == '' and $([MSBuild]::IsOsPlatform('Linux'))">/usr</MonoRoot>
